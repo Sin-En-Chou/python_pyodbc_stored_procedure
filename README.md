@@ -13,7 +13,7 @@ constr = 'DRIVER={SQL Server};SERVER=' + SERVER + ';DATABASE=' + DATABASE + ';UI
 def method1():
 	cnxn = pyodbc.connect(constr)
 	curs = cnxn.cursor()
-	curs.execute("{call proc_datdr777(20200701,2,'X00012345','','A')}")
+	curs.execute("{call proc_datdr777(20200701,2,'X00012345','','A')}") # call Stored Procedure
 
 	while curs.nextset():
 		try:
