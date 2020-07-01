@@ -53,17 +53,19 @@ method2()
 那怎麼辦?! 「只好涼拌炒雞蛋囉！」 (誤)
 
 解決辦法:
-    目前僅能在自己寫的Stored Procedure將此欄位加上CONVERT()函數去做轉換!
-    ```CONVERT(data_type(length),data_to_be_converted,style)```
-    例:
-    ```sql
-    DECLARE @price int
-    SET @price = 71
-    --SELECT CONVERT(decimal(14,2),avg(strike_price)) ... -- <-- 你的程式
-    SELECT CONVERT(decimal(14,2),avg(@price))
-    ```
-    輸出:
-    `71`
+目前僅能在自己寫的Stored Procedure將此欄位加上CONVERT()函數去做轉換!
+```
+CONVERT(data_type(length),data_to_be_converted,style)
+```
+例:
+```mysql
+DECLARE @price int
+SET @price = 71
+--SELECT CONVERT(decimal(14,2),avg(strike_price)) ... -- <-- 你的程式
+SELECT CONVERT(decimal(14,2),avg(@price))
+```
+輸出:
+`71`
 
 參考網址:
 1. https://stackoverflow.com/questions/46566992/how-to-parse-decimalstr-with-python
